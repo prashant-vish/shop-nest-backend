@@ -1,10 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
-import { createProduct } from "./controller/Products.js";
+
+import router from "./routes/Products.js";
 
 const server = express();
 
 server.use(express.json()); // to parse req.body
+server.use("/products", router);
+
 
 main().catch((err) => console.log(err));
 
@@ -16,7 +19,7 @@ async function main() {
 server.get("/", (req, res) => {
   res.json({ status: "success" });
 });
-server.post("/products", createProduct);
+// server.post("/products", createProduct);
 
 server.listen(8080, () => {
   console.log("Server is running at 8080 port");
