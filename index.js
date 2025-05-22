@@ -1,13 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import router from "./routes/Products.js";
-
+import productRouter from "./routes/Products.js";
+import categoriesRouter from "./routes/Categories.js";
+import brandsRouter from "./routes/Brands.js";
 const server = express();
 
 server.use(express.json()); // to parse req.body
-server.use("/products", router);
-
+server.use("/products", productRouter);
+server.use("/categories", categoriesRouter);
+server.use("/brands", brandsRouter);
 
 main().catch((err) => console.log(err));
 
