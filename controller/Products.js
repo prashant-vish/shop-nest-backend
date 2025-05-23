@@ -53,3 +53,13 @@ export const fetchAllProducts = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
+export const fetchProductById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await Product.findById(id);
+    res.status(201).json(product);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
