@@ -4,7 +4,10 @@ import mongoose from "mongoose";
 import productRouter from "./routes/Products.js";
 import categoriesRouter from "./routes/Categories.js";
 import brandsRouter from "./routes/Brands.js";
+import cors from "cors";
 const server = express();
+
+server.use(cors());
 
 server.use(express.json()); // to parse req.body
 server.use("/products", productRouter);
