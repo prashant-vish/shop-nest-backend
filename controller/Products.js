@@ -16,6 +16,7 @@ export const fetchAllProducts = async (req, res) => {
   // sort ={"_sort":"price"}
   // pagination ={_page:1,_per_page:1}
   // Todo : We have to try with multiple Category and brand after change in frontend.
+  console.log("hellow");
 
   let query = Product.find({});
   let totalProductsQuery = Product.find({});
